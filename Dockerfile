@@ -34,7 +34,7 @@ RUN r -e 'devtools::install(".", dependencies = TRUE, upgrade_dependencies = FAL
 RUN r -e 'remotes::install_local(".")'
 
 # Check the package
-RUN r -e 'devtools::check(".", vignettes = FALSE, args = "--no-vignettes")'
+#RUN r -e 'devtools::check(".", vignettes = FALSE, args = "--no-vignettes")'
 
 # render the analysis
 # && r -e "rmarkdown::render('~/vignettes/guedesbocinsky2018.Rmd')"
