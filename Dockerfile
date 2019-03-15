@@ -21,8 +21,6 @@ COPY . ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
 RUN chown -R ${NB_USER} /tmp
 
-## Become normal user again
-USER ${NB_USER}
 
 # Install dev version of devtools to facilitate installing from "remotes" field in DESCRIPTION
 RUN r -e 'devtools::install_cran("remotes")'
@@ -38,3 +36,6 @@ RUN r -e 'remotes::install_local(".")'
 
 # render the analysis
 # && r -e "rmarkdown::render('~/vignettes/guedesbocinsky2018.Rmd')"
+
+## Become normal user again
+USER ${NB_USER}
