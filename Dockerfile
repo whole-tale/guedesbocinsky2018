@@ -37,6 +37,7 @@ RUN r -e 'remotes::install_local(".")'
 # render the analysis
 # && r -e "rmarkdown::render('~/vignettes/guedesbocinsky2018.Rmd')"
 
+RUN chown -R ${NB_USER}:${NB_USER} /etc/rstudio
 COPY start.sh /start.sh
 COPY ./watchdog.py /tmp/watchdog.py
 HEALTHCHECK --interval=5s --timeout=15s --start-period=5s CMD python3 /tmp/watchdog.py
